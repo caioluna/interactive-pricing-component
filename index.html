@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Interactive pricing component</title>
+  </head>
+  <body>
+    <header class="head">
+      <h1 class="title">Simple, traffic-based pricing</h1>
+      <p>Sign-up for our 30-day trial. No credit card required.</p>
+    </header>
+
+    <main>
+      <div class="card">
+        <div class="controls">
+          <h2>100k Pageviews</h2>
+          <p class="amount">$16.00<small>/month</small></p>
+
+          <p class="option">Monthly Billing</p>
+
+          <label for="toggle" class="switch">
+            <input type="checkbox" id="toggle" />
+            <span class="slider round"></span>
+          </label>
+
+          <p class="option">
+            Yearly Billing <span class="discount"> -25%</span>
+          </p>
+        </div>
+      </div>
+
+      <ul class="">
+        <li>Unlimited websites</li>
+        <li>100% data ownership</li>
+        <li>Email reports</li>
+      </ul>
+
+      <button class="trial">Start my trial</button>
+    </main>
+
+    <script src="./scripts/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-size: 15px;
+  font-family: 'Manrope', sans-serif;
+  text-align: center;
+  padding: 60px;
+}
+
+main {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+/*# sourceMappingURL=style.css.map */
