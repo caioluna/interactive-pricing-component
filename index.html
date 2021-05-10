@@ -25,31 +25,46 @@
     </header>
 
     <main>
-      <div class="card">
+
+      <section class="card">
+
         <div class="controls">
           <h2>100k Pageviews</h2>
-          <p class="amount">$16.00<small>/month</small></p>
+          <label for="price-slider">price-slider</label>
+          <input type="range" name="price-slider" id="price-slider" step="25" min="0" max="100">
+          <p class="amount">$16.00<small>/ month</small></p>
 
-          <p class="option">Monthly Billing</p>
+          <div class="switch-wrapper">
+            <p class="option">Monthly Billing</p>
+  
+            <label for="toggle" class="switch">
+              <input type="checkbox" id="toggle">
+              <span class="slider round"></span>
+            </label>
+            <p class="option">
+              Yearly Billing <span class="discount"> -25%</span>
+            </p>
+          </div>
 
-          <label for="toggle" class="switch">
-            <input type="checkbox" id="toggle" />
-            <span class="slider round"></span>
-          </label>
-
-          <p class="option">
-            Yearly Billing <span class="discount"> -25%</span>
-          </p>
         </div>
-      </div>
 
-      <ul class="">
-        <li>Unlimited websites</li>
-        <li>100% data ownership</li>
-        <li>Email reports</li>
-      </ul>
+        <!-- <span class="division"></span> -->
 
-      <button class="trial">Start my trial</button>
+        <div class="cta">
+
+          <ul class="benefits">
+            <li>Unlimited websites</li>
+            <li>100% data ownership</li>
+            <li>Email reports</li>
+          </ul>
+    
+          <button class="trial">Start my trial</button>
+
+        </div>
+
+      
+      </section>
+
     </main>
 
     <script src="./scripts/main.js"></script>

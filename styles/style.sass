@@ -13,23 +13,216 @@ $whiteish-blue: #cdd7ee
 $grayish-blue: #858fad
 $deep-dark-blue: #293356
 
+$grid-template-width: calc(50vw - (375px / 2))
+
 *
   margin: 0
   padding: 0
   border: 0
   box-sizing: border-box
+  font-family: 'Manrope'
+
 
 body
   font-size: 15px
-  font-family: 'Manrope', sans-serif //600 800
+  font-weight: 600
   text-align: center
-  padding: 60px
+
+  background: url("../images/bg-pattern.svg") top left/auto no-repeat
+  margin: 80px auto
+  display: grid
+  grid-template-columns: $grid-template-width repeat(3, 1fr) $grid-template-width
+
+  height: 100vh
+  justify-content: center
+  align-content: center
+
+.head
+  grid-column: 2 / -2
+  padding: 10px
+  position: relative
+
+  &::before
+    content: url("../images/pattern-circles.svg")
+    position: absolute
+    left: 0
+    right: 0
+    top: -30px
+    z-index: -1
+
+  .title
+    color: $deep-dark-blue
+    font-size: 18px
+
+  p
+    color: $grayish-blue
+    width: 160px
+    margin: 0 auto
+    font-size: 12px
+    line-height: 1.8
+    margin-top: 10px
 
 main
-  display: grid
-  place-items: center
-  height: 100vh
+  grid-column: 2 / -2
+  margin: 50px 20px 0
 
-.tittle
-  color: red
+  section.card
+    background-color: $white
+    border-radius: 10px
+    box-shadow: 2px 10px 20px -10px rgba(0, 0, 0, .3)
+
+    .controls
+      border-bottom: 1px solid $pale-blue
+      padding: 30px 20px 5px
+
+      h2
+        font-size: 12px
+        text-transform: uppercase
+        letter-spacing: 2px
+        color: $grayish-blue
+
+      label
+        display: none
+
+      input#price-slider
+        appearance: none
+        margin: 40px auto
+        width: 95%
+        height: 7px
+        background-color: $whiteish-blue
+        border-radius: 12px
+        transition: .4s
+
+        &:hover
+          background-color: $pale-blue 
+          transition: .4s 
+          
+        &::-moz-range-thumb
+          background: $strong-cyan url("../images/icon-slider.svg") center/auto no-repeat
+          border: 0
+          width: 40px
+          height: 40px
+          border-radius: 50%
+          cursor: pointer
+          box-shadow: 0px 12px 22px 0px #10d5c2cc
+
+        &::-webkit-slider-thumb
+          -webkit-appearance: none
+          appearance: none
+          background: $strong-cyan url("../images/icon-slider.svg") center/auto no-repeat
+          border: 0
+          width: 40px
+          height: 40px
+          border-radius: 50%
+          cursor: pointer
+          box-shadow: 0px 12px 22px 0px #10d5c2cc
+
+      p.amount
+        font-size: 30px
+        font-weight: 800
+        color: $deep-dark-blue
+        display: flex
+        justify-content: center
+        letter-spacing: -2px
+
+        small
+          font-size: 14px
+          font-weight: 600
+          letter-spacing: 0
+          color: $grayish-blue
+          align-self: center
+          margin-left: 10px
+
+      .switch-wrapper
+        display: flex
+        justify-content: center
+        margin: 25px auto
+      
+        p.option
+          font-size: 12px
+          font-weight: 600
+          color: $grayish-blue
+          align-self: center
+          position: relative
+
+          .discount
+            position: absolute
+            margin-left: 5px
+            font-size: 10px
+            color: $light-red
+            background-color: $light-grayish-red
+            padding: 2px 6px
+            border-radius: 12px
+
+        .switch
+          position: relative
+          display: inline-block
+          width: 40px
+          height: 20px
+          margin: 0 15px
+
+          input
+            opacity: 0
+            width: 0
+            height: 0
+
+            &:checked + .slider
+              background-color: $strong-cyan
+
+              &::before
+                transform: translateX(18px)
+
+            &:focus + .slider
+              box-shadow: 0 0 1px $strong-cyan
+
+          .slider
+            position: absolute
+            cursor: pointer
+            top: 0
+            left: 0
+            right: 0
+            bottom: 0
+            background-color: $pale-blue
+            transition: .4s
+
+            &::before
+              position: absolute
+              content: "" 
+              width: 13px
+              height: 13px
+              left: 4px
+              bottom: 4px
+              background-color: $white
+              transition: .4s
+
+            &.round
+              border-radius: 34px
+
+              &::before
+                border-radius: 50%
+
+        .benefits
+          background-color: pink
+
+    div.cta
+      padding: 30px 20px
+
+      ul.benefits
+        list-style: url(../images/icon-check.svg)
+
+        li
+          padding-left: 5px
+          color: $grayish-blue
+          font-size: 12px
+          line-height: 22px
+
+      .trial
+        background-color: $deep-dark-blue
+        color: $pale-blue
+        padding: 12px 40px
+        margin-top: 20px
+        border-radius: 35px
+
+        font-size: 12px
+        font-weight: 800
 
