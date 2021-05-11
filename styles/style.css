@@ -62,8 +62,8 @@ main {
 main section.card {
   background-color: #ffffff;
   border-radius: 10px;
-  -webkit-box-shadow: 2px 10px 20px -10px rgba(0, 0, 0, 0.3);
-          box-shadow: 2px 10px 20px -10px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 2px 10px 20px -5px #50505026;
+          box-shadow: 2px 10px 20px -5px #50505026;
 }
 
 main section.card .controls {
@@ -90,9 +90,13 @@ main section.card .controls input#price-slider {
   width: 95%;
   height: 7px;
   background-color: #cdd7ee;
-  border-radius: 12px;
+  border-radius: 50px;
   -webkit-transition: .4s;
   transition: .4s;
+}
+
+main section.card .controls input#price-slider:focus {
+  outline: none;
 }
 
 main section.card .controls input#price-slider:hover {
@@ -102,26 +106,39 @@ main section.card .controls input#price-slider:hover {
 }
 
 main section.card .controls input#price-slider::-moz-range-thumb {
+  -moz-appearance: none;
+       appearance: none;
   background: #10d5c2 url("../images/icon-slider.svg") center/auto no-repeat;
   border: 0;
   width: 40px;
   height: 40px;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0px 12px 22px 0px #10d5c2cc;
+}
+
+main section.card .controls input#price-slider::-moz-range-progress {
+  background: #a5f3eb;
+  height: 100%;
+  border-radius: 50px;
 }
 
 main section.card .controls input#price-slider::-webkit-slider-thumb {
+  margin-top: -15px;
   -webkit-appearance: none;
-  appearance: none;
+          appearance: none;
   background: #10d5c2 url("../images/icon-slider.svg") center/auto no-repeat;
   border: 0;
   width: 40px;
   height: 40px;
   border-radius: 50%;
   cursor: pointer;
-  -webkit-box-shadow: 0px 12px 22px 0px #10d5c2cc;
-          box-shadow: 0px 12px 22px 0px #10d5c2cc;
+}
+
+main section.card .controls input#price-slider::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  background: #a5f3eb;
+  height: 100%;
+  border-radius: 50px;
 }
 
 main section.card .controls p.amount {
@@ -183,7 +200,7 @@ main section.card .controls .switch-wrapper .switch {
   display: inline-block;
   width: 40px;
   height: 20px;
-  margin: 0 15px;
+  margin: 0 10px;
 }
 
 main section.card .controls .switch-wrapper .switch input {
@@ -214,8 +231,8 @@ main section.card .controls .switch-wrapper .switch .slider {
   right: 0;
   bottom: 0;
   background-color: #bdccff;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.2s cubic-bezier(0.8, -0.1, 1, 0.98);
+  transition: 0.2s cubic-bezier(0.8, -0.1, 1, 0.98);
 }
 
 main section.card .controls .switch-wrapper .switch .slider::before {
@@ -226,8 +243,8 @@ main section.card .controls .switch-wrapper .switch .slider::before {
   left: 4px;
   bottom: 4px;
   background-color: #ffffff;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.2s cubic-bezier(0.8, -0.1, 1, 0.98);
+  transition: 0.2s cubic-bezier(0.8, -0.1, 1, 0.98);
 }
 
 main section.card .controls .switch-wrapper .switch .slider.round {
@@ -248,6 +265,7 @@ main section.card div.cta {
 
 main section.card div.cta ul.benefits {
   list-style: url(../images/icon-check.svg);
+  list-style-position: inside;
 }
 
 main section.card div.cta ul.benefits li {
