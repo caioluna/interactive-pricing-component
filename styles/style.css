@@ -25,6 +25,10 @@ body {
       align-content: center;
 }
 
+.hide {
+  display: none;
+}
+
 .head {
   grid-column: 2 / -2;
   padding: 10px;
