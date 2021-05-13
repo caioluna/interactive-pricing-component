@@ -175,6 +175,7 @@ main
             background-color: $light-grayish-red
             padding: 2px 6px
             border-radius: 12px
+            font-weight: 800
 
         .switch
           position: relative
@@ -249,12 +250,19 @@ main
 
         font-size: 12px
         font-weight: 800
+        transition: .4s
+
+        &:hover
+          color: $white
+          transition: .4s
 
 @media (min-width: 800px)
   $grid-template-width: calc(50vw - (550px / 2))
 
   body
+    background: url("../images/bg-pattern.svg") top left/contain no-repeat
     grid-template-columns: $grid-template-width repeat(3, 1fr) $grid-template-width
+    margin: 0
 
   .head
     .title
@@ -264,18 +272,48 @@ main
       width: 100%
       font-size: 14px
 
-  .controls
-    display: grid
-    grid-template-areas:  pg-views amount range switch
+  main
+    section.card
+      .controls
+        padding: 40px 40px 20px
+        display: grid
+        grid-template-areas:  "pg-views amount" "range range" "switch switch"
 
-    .page-views
-      grid-area: pg-views
-    
-    input#price-range
-      grid-area: range
+        h2
+          font-size: 15px
+          grid-area: pg-views
+          align-self: center
+          text-align: left
+        
+        input#price-range
+          grid-area: range
+          min-width: 100%
 
-    .amount
-      grid-area: amount
+        p.amount
+          font-size: 38px
+          grid-area: amount
+          justify-self: right
 
-    .switch-wrapper
-      grid-area: switch
+          small
+            font-size: 16px
+
+        .switch-wrapper
+          grid-area: switch
+
+          p.option
+            .discount
+              width: 85px
+              span
+                display: inline
+
+      div.cta
+        padding: 30px 40px
+        display: flex
+        justify-content: space-between
+        align-items: center
+
+        ul.benefits
+          text-align: left
+
+        .trial
+          margin-top: 0

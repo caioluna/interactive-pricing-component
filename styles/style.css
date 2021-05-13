@@ -205,6 +205,7 @@ main section.card .controls .switch-wrapper p.option .discount {
   background-color: #feece7;
   padding: 2px 6px;
   border-radius: 12px;
+  font-weight: 800;
 }
 
 main section.card .controls .switch-wrapper .switch {
@@ -296,12 +297,22 @@ main section.card div.cta .trial {
   cursor: pointer;
   font-size: 12px;
   font-weight: 800;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+main section.card div.cta .trial:hover {
+  color: #ffffff;
+  -webkit-transition: .4s;
+  transition: .4s;
 }
 
 @media (min-width: 800px) {
   body {
+    background: url("../images/bg-pattern.svg") top left/contain no-repeat;
     -ms-grid-columns: calc(50vw - (550px / 2)) (1fr)[3] calc(50vw - (550px / 2));
         grid-template-columns: calc(50vw - (550px / 2)) repeat(3, 1fr) calc(50vw - (550px / 2));
+    margin: 0;
   }
   .head .title {
     font-size: 26px;
@@ -310,26 +321,69 @@ main section.card div.cta .trial {
     width: 100%;
     font-size: 14px;
   }
-  .controls {
+  main section.card .controls {
+    padding: 40px 40px 20px;
     display: -ms-grid;
     display: grid;
-        grid-template-areas: pg-views amount range switch;
+        grid-template-areas: "pg-views amount" "range range" "switch switch";
   }
-  .controls .page-views {
-    grid-area: pg-views;
-  }
-  .controls input#price-range {
+  main section.card .controls h2 {
+    font-size: 15px;
     -ms-grid-row: 1;
-    -ms-grid-column: 3;
-    grid-area: range;
+    -ms-grid-column: 1;
+    grid-area: pg-views;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    text-align: left;
   }
-  .controls .amount {
+  main section.card .controls input#price-range {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: range;
+    min-width: 100%;
+  }
+  main section.card .controls p.amount {
+    font-size: 38px;
     -ms-grid-row: 1;
     -ms-grid-column: 2;
     grid-area: amount;
+    -ms-grid-column-align: right;
+        justify-self: right;
   }
-  .controls .switch-wrapper {
+  main section.card .controls p.amount small {
+    font-size: 16px;
+  }
+  main section.card .controls .switch-wrapper {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
     grid-area: switch;
+  }
+  main section.card .controls .switch-wrapper p.option .discount {
+    width: 85px;
+  }
+  main section.card .controls .switch-wrapper p.option .discount span {
+    display: inline;
+  }
+  main section.card div.cta {
+    padding: 30px 40px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  main section.card div.cta ul.benefits {
+    text-align: left;
+  }
+  main section.card div.cta .trial {
+    margin-top: 0;
   }
 }
 /*# sourceMappingURL=style.css.map */
