@@ -86,7 +86,7 @@ main section.card .controls label {
   display: none;
 }
 
-main section.card .controls input#price-slider {
+main section.card .controls input#price-range {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -99,17 +99,21 @@ main section.card .controls input#price-slider {
   transition: .4s;
 }
 
-main section.card .controls input#price-slider:focus {
+main section.card .controls input#price-range:active {
+  background-color: #22AEA1;
+}
+
+main section.card .controls input#price-range:focus {
   outline: none;
 }
 
-main section.card .controls input#price-slider:hover {
+main section.card .controls input#price-range:hover {
   background-color: #bdccff;
   -webkit-transition: .4s;
   transition: .4s;
 }
 
-main section.card .controls input#price-slider::-moz-range-thumb {
+main section.card .controls input#price-range::-moz-range-thumb {
   -moz-appearance: none;
        appearance: none;
   background: #10d5c2 url("../images/icon-slider.svg") center/auto no-repeat;
@@ -120,13 +124,17 @@ main section.card .controls input#price-slider::-moz-range-thumb {
   cursor: pointer;
 }
 
-main section.card .controls input#price-slider::-moz-range-progress {
+main section.card .controls input#price-range::-moz-range-thumb:active {
+  background-color: #22AEA1;
+}
+
+main section.card .controls input#price-range::-moz-range-progress {
   background: #a5f3eb;
   height: 100%;
   border-radius: 50px;
 }
 
-main section.card .controls input#price-slider::-webkit-slider-thumb {
+main section.card .controls input#price-range::-webkit-slider-thumb {
   margin-top: -15px;
   -webkit-appearance: none;
           appearance: none;
@@ -138,7 +146,7 @@ main section.card .controls input#price-slider::-webkit-slider-thumb {
   cursor: pointer;
 }
 
-main section.card .controls input#price-slider::-webkit-slider-runnable-track {
+main section.card .controls input#price-range::-webkit-slider-runnable-track {
   -webkit-appearance: none;
   background: #a5f3eb;
   height: 100%;
@@ -285,7 +293,43 @@ main section.card div.cta .trial {
   padding: 12px 40px;
   margin-top: 20px;
   border-radius: 35px;
+  cursor: pointer;
   font-size: 12px;
   font-weight: 800;
+}
+
+@media (min-width: 800px) {
+  body {
+    -ms-grid-columns: calc(50vw - (550px / 2)) (1fr)[3] calc(50vw - (550px / 2));
+        grid-template-columns: calc(50vw - (550px / 2)) repeat(3, 1fr) calc(50vw - (550px / 2));
+  }
+  .head .title {
+    font-size: 26px;
+  }
+  .head p {
+    width: 100%;
+    font-size: 14px;
+  }
+  .controls {
+    display: -ms-grid;
+    display: grid;
+        grid-template-areas: pg-views amount range switch;
+  }
+  .controls .page-views {
+    grid-area: pg-views;
+  }
+  .controls input#price-range {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+    grid-area: range;
+  }
+  .controls .amount {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-area: amount;
+  }
+  .controls .switch-wrapper {
+    grid-area: switch;
+  }
 }
 /*# sourceMappingURL=style.css.map */

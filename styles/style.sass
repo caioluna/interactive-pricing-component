@@ -87,7 +87,7 @@ main
       label
         display: none
 
-      input#price-slider
+      input#price-range
         appearance: none
         margin: 40px auto
         width: 95%
@@ -96,13 +96,16 @@ main
         border-radius: 50px
         transition: .4s
 
+        &:active
+          background-color: #22AEA1
+
         &:focus
           outline: none
 
         &:hover
           background-color: $pale-blue 
           transition: .4s 
-          
+
         &::-moz-range-thumb
           appearance: none
           background: $strong-cyan url("../images/icon-slider.svg") center/auto no-repeat
@@ -111,6 +114,9 @@ main
           height: 40px
           border-radius: 50%
           cursor: pointer
+
+          &:active
+            background-color: #22AEA1
 
         &::-moz-range-progress
           background: $soft-cyan
@@ -239,10 +245,37 @@ main
         padding: 12px 40px
         margin-top: 20px
         border-radius: 35px
+        cursor: pointer
 
         font-size: 12px
         font-weight: 800
 
+@media (min-width: 800px)
+  $grid-template-width: calc(50vw - (550px / 2))
 
+  body
+    grid-template-columns: $grid-template-width repeat(3, 1fr) $grid-template-width
 
+  .head
+    .title
+      font-size: 26px
     
+    p
+      width: 100%
+      font-size: 14px
+
+  .controls
+    display: grid
+    grid-template-areas:  pg-views amount range switch
+
+    .page-views
+      grid-area: pg-views
+    
+    input#price-range
+      grid-area: range
+
+    .amount
+      grid-area: amount
+
+    .switch-wrapper
+      grid-area: switch

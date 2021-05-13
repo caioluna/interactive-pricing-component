@@ -1,70 +1,99 @@
-const DOM = {
-    priceAmountValue: document.getElementById("price"),
-    pageViews: document.querySelector('.number-viewers'),
+let planPrice = document.getElementById("plan-price")
+let pageViews = document.querySelector(".page-views")
+let planToggle = document.getElementById("plan-toggle")
+let priceRange = document.getElementById("price-range")
+let planType = document.querySelector(".amount small")
 
-    choosePlan(switchPos) {
-        const priceSliderValue = Number(switchPos)
-        
-        switch (priceSliderValue) {
-            case 0:
-                DOM.priceAmountValue.innerText = Utils.billingType(9).toFixed(2)
-                DOM.pageViews.innerText = "25k"
-                break
-        
-            case 25:
-                DOM.priceAmountValue.innerText = Utils.billingType(12).toFixed(2)
-                DOM.pageViews.innerText = "50k"
-                break
-        
-            case 50:
-                DOM.priceAmountValue.innerText = Utils.billingType(16).toFixed(2)
-                DOM.pageViews.innerText = "100k"
-                break
-        
-            case 75:
-                DOM.priceAmountValue.innerText = Utils.billingType(22).toFixed(2)
-                DOM.pageViews.innerText = "500k"
-                break
-        
-            case 100:
-                DOM.priceAmountValue.innerText = Utils.billingType(29).toFixed(2)
-                DOM.pageViews.innerText = "1M+"
-                break       
+priceRange.addEventListener("input", setMonthPrice)
+priceRange.addEventListener("input", setYearPrice)
+
+planToggle.addEventListener("input", () => {
+
+    if (planToggle.checked) {
+
+        if (planType.innerText === "/ month")
+        planType.innerText = "/ year"
+    } else {
+        planType.innerText = "/ month"    
+    }
+    setYearPrice()
+
+})
+
+function setMonthPrice() {
+    
+    const priceRangeValue = Number(priceRange.value)
+
+    switch (priceRangeValue) {
+        case 1:
+            planPrice.innerText = "8.00"
+            pageViews.innerText = "10k"
+            break;
+
+        case 2:
+            planPrice.innerText = "12.00"
+            pageViews.innerText = "50k"
+            
+            break;
+
+        case 3:
+            planPrice.innerText = "16.00"
+            pageViews.innerText = "100k"
+            
+            break;
+
+        case 4:
+            planPrice.innerText = "24.00"
+            pageViews.innerText = "500k"
+            
+            break;
+
+        case 5:
+            planPrice.innerText = "36.00"
+            pageViews.innerText = "1M"
+            
+            break;
+    }
+}
+
+function setYearPrice() {
+
+    let priceRangeValue = Number(priceRange.value)
+
+    if (priceRangeValue === 1) {
+        if (planToggle.checked) {
+            planPrice.innerText = ((planPrice.innerText - planPrice.innerText * 0.25) * 12).toFixed(2)
+        } else {
+            planPrice.innerText = "8.00"
         }
     }
-}
-
-const Utils = {
-
-    billingSwitch: document.getElementById("toggle"),
-
-    billingType(value) {
-
-        let realPrice = Number(value)
-
-        if (this.billingSwitch.checked) {
-
-            realPrice = (realPrice - (realPrice * .25)) *12
-            return realPrice
-        } 
-        
-        return realPrice
-
+    if (priceRangeValue === 2) {
+        if (planToggle.checked) {
+            planPrice.innerText = ((planPrice.innerText - planPrice.innerText * 0.25) * 12).toFixed(2)
+        } else {
+            planPrice.innerText = "12.00"
+        }
     }
-}
-
-const Run = {
-
-    init(value) {
-
-        DOM.choosePlan(value)
-
+    if (priceRangeValue === 3) {
+        if (planToggle.checked) {
+            planPrice.innerText = ((planPrice.innerText - planPrice.innerText * 0.25) * 12).toFixed(2)
+        } else {
+            planPrice.innerText = "16.00"
+        }
+    }
+    if (priceRangeValue === 4) {
+        if (planToggle.checked) {
+            planPrice.innerText = ((planPrice.innerText - planPrice.innerText * 0.25) * 12).toFixed(2)
+        } else {
+            planPrice.innerText = "24.00"
+        }
+    }
+    if (priceRangeValue === 5) {
+        if (planToggle.checked) {
+            planPrice.innerText = ((planPrice.innerText - planPrice.innerText * 0.25) * 12).toFixed(2)
+        } else {
+            planPrice.innerText = "36.00"
+        }
     }
 
 }
-
-console.log(Utils.billingType(9.00))
-
-// pegar o valor de price-amount
-// fazer conta para deduzir os 25%
-// devolver o valor atualizado para o innerText

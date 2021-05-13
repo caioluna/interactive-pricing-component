@@ -29,17 +29,17 @@
       <section class="card">
 
         <div class="controls">
-          <h2><span class="number-viewers">100k</span> Pageviews</h2>
-          <label for="price-slider">price-slider</label>
-          <input type="range" name="price-slider" id="price-slider" step="25" min="0" max="100" oninput="Run.init(value)">
-          <p class="amount">$<span id="price">16.00</span><small>/ month</small></p>
+          <h2><span class="page-views">100k</span> Pageviews</h2>
+          <label for="price-range">price-slider</label>
+          <input type="range" name="price-range" id="price-range" step="1" min="1" max="5">
+          <p class="amount">$<span id="plan-price">16.00</span><small>/ month</small></p>
 
           <div class="switch-wrapper">
             <p class="option">Monthly Billing</p>
   
-            <label for="toggle" class="switch">
+            <label for="plan-toggle" class="switch">
               <span class="hide">yearly billing switch</span>
-              <input type="checkbox" id="toggle">
+              <input type="checkbox" id="plan-toggle">
               <span class="slider round"></span>
             </label>
             <p class="option">
